@@ -1,0 +1,10 @@
+.input.invalid{
+    border-color:red;
+    outline:none;
+}
+.input{
+    border:1px solid lightgray;
+}
+.input:active{
+    outline:none;
+}
