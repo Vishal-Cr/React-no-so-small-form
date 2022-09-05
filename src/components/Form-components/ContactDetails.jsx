@@ -16,7 +16,7 @@ export const ContactDetails = (props) => {
           <RequiredLabel htmlFor="Guardian_detail">
             Guardian Details
           </RequiredLabel>
-          <Field as="select" name="Guardian_detail" className={`input`}>
+          <Field as="select" name="Guardian_detail" className={`input select`}>
             <option value="" disabled>
               Enter Label
             </option>

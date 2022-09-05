@@ -1,23 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   RequiredLabel,
   FormHeading,
   AddressDetailsForm,
+  ErrorText,
 } from "../styles/Form.styled";
-import { Field } from "formik";
+import { FormContext } from "../Store/FormContext";
+import { Field, setNestedObjectValues } from "formik";
 import { STATES, CITIES } from "../Data";
 import { validatePin } from "../Validation/Validation";
 import "../styles/SignupForm.css";
+import { TagsInput } from "react-tag-input-component";
 
 export const AddressDetails = (props) => {
+  const { selectedState, setSelectedState } = useContext(FormContext);
   const { errors, touched } = props;
   const [inputState, setInputState] = useState("Enter State");
-  const [inputCity, setInputCity] = useState(1);
-  let city_arr = CITIES[inputCity].split("|");
+  const [inputCityIndex, setinputCityIndex] = useState(0);
+  const [selected, setSelected] = useState(["India"]);
+
+  let city_arr = CITIES[inputCityIndex].split("|");
 
   useEffect(() => {
-    setInputCity((prevCity) => (prevCity = STATES.indexOf(inputState)));
-  }, [inputState]);
+    setinputCityIndex((prevCity) => (prevCity = STATES.indexOf(inputState)));
+    setSelectedState(inputState);
+  }, [inputState, city_arr]);
 
   return (
     <>
@@ -37,8 +44,12 @@ export const AddressDetails = (props) => {
           <Field
             as="select"
             name="State"
-            className={`input`}
-            onChange={(e) => setInputState(e.target.value)}
+            id="State"
+            className={`input select`}
+            onChange={(event) => {
+              setInputState(event.target.value);
+            }}
+            value={inputState}
           >
             {STATES.map((item) => {
               return (
@@ -51,7 +62,7 @@ export const AddressDetails = (props) => {
         </div>
         <div>
           <RequiredLabel htmlFor="City">City</RequiredLabel>
-          <Field as="select" name="City" className={`input`}>
+          <Field as="select" name="City" className={`input select`}>
             {city_arr.map((item) => {
               return (
                 <option value={item} key={item}>
@@ -62,8 +73,14 @@ export const AddressDetails = (props) => {
           </Field>
         </div>
         <div>
-          <RequiredLabel htmlFor="Country">Country</RequiredLabel>
-          <Field type="search" name="Country" className="input" />
+          <RequiredLabel htmlFor={`Country`}>Country</RequiredLabel>
+
+          <TagsInput
+            value={selected}
+            onChange={setSelected}
+            name="Country"
+            placeHolder="enter Country"
+          />
         </div>
         <div>
           <RequiredLabel htmlFor="Pin">Pincode</RequiredLabel>
@@ -84,5 +101,3 @@ export const AddressDetails = (props) => {
     </>
   );
 };
-
-export default AddressDetails;

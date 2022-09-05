@@ -58,7 +58,7 @@ export const PersonalDetails = (props) => {
             as="select"
             name="Sex"
             validate={validateSex}
-            className={`input  ${
+            className={`input select ${
               errors.Sex && touched.Sex ? "invalid" : "valid"
             }`}
           >
@@ -89,13 +89,7 @@ export const PersonalDetails = (props) => {
         </div>
         <div className="Input_pair">
           <RequiredLabel htmlFor="GovtID">Govt Issued ID </RequiredLabel>
-          <Field
-            as="select"
-            name="GovtId"
-            className={`input  ${
-              errors.GovtId && touched.GovtId ? "invalid" : "valid"
-            }`}
-          >
+          <Field as="select" name="GovtID" className={`input select`}>
             <option value="" disabled>
               ID Type
             </option>
