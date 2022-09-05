@@ -5,6 +5,7 @@ import {
   AddressDetailsForm,
   ErrorText,
 } from "../styles/Form.styled";
+
 import { FormContext } from "../Store/FormContext";
 import { Field, setNestedObjectValues } from "formik";
 import { STATES, CITIES } from "../Data";
@@ -40,7 +41,9 @@ export const AddressDetails = (props) => {
           />
         </div>
         <div>
-          <RequiredLabel htmlFor="State">State</RequiredLabel>
+          <RequiredLabel htmlFor="State" Required>
+            State
+          </RequiredLabel>
           <Field
             as="select"
             name="State"

@@ -6,6 +6,11 @@ border:1px solid #333;
 width:100%;
 border-radius:4px;
 font-family: 'Poppins', sans-serif;
+@media only screen and (max-width:400px){
+font-size:12px;
+width:100vw;
+
+}
 `;
 export const TableHead = styled.thead`
 

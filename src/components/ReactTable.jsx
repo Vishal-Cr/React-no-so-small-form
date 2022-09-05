@@ -29,7 +29,11 @@ const ReactTable = (props) => {
                   <td>{item.Age}</td>
                   <td>{item.Sex}</td>
                   <td>{item.Mobile || "N/A"}</td>
-                  <td>{current_selected_state || "N/A"}</td>
+                  <td>
+                    {current_selected_state == "Enter State"
+                      ? "N/A"
+                      : current_selected_state}
+                  </td>
                   <td>{item.City || "N/A"}</td>
                   <td>{item.Occupation || "N/A"}</td>
                   <td>{item.BloodGroup || "N/A"}</td>
