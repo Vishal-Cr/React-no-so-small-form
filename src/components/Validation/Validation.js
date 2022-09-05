@@ -3,8 +3,7 @@ export function validateEmail(value) {
     let error
     if (!value) {
         error = "**Required Field"
-    };
-    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
         error = '**Invalid email address';
     }
 
@@ -79,8 +78,7 @@ export function validateMobile(value) {
     if (!value) {
 
         error = '**Required Field';
-    } 
-    if (!(/^[789]\d{9}$/.test(value))) {
+    } else if (!(/^[789]\d{9}$/.test(value))) {
         error = '**Invalid Mobile Number';
     }
     return error;
