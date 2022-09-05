@@ -69,7 +69,10 @@ export function validateSex(value) {
 }
 export function validateMobile(value) {
     let error;
-    if (!value) return;
+    if (!value) {
+        return;
+        // error = '**Required Field';
+    } 
     if (!(/^[789]\d{9}$/.test(value))) {
         error = '**Invalid Mobile Number';
     }

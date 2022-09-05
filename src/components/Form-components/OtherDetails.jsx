@@ -52,9 +52,7 @@ export const OtherDetails = () => {
           </Field>
         </div>
         <div>
-          <RequiredLabel htmlFor="BloodGroup" Required>
-            Blood Group
-          </RequiredLabel>
+          <RequiredLabel htmlFor="BloodGroup">Blood Group</RequiredLabel>
           <Field as="select" name="BloodGroup" className={`input select`}>
             <option value="" disabled>
               Enter Blood Group

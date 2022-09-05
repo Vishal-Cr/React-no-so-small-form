@@ -6,10 +6,12 @@ import { ContactDetails } from "./Form-components/ContactDetails";
 import { AddressDetails } from "./Form-components/AddressDetails";
 import { OtherDetails } from "./Form-components/OtherDetails";
 import { FormContext } from "./Store/FormContext";
-
+import { ErrorText } from "./styles/Form.styled";
 // export default Registration_Form
 export const SignupForm = () => {
   const { formData, setFormData } = useContext(FormContext);
+  const [formError, setFormError] = useState(false);
+  let requiredError = "**Required Field";
   return (
     <div>
       <Formik
@@ -37,6 +39,7 @@ export const SignupForm = () => {
           Nationality: "Indian",
         }}
         onSubmit={(values, { resetForm }) => {
+          console.log(Object.Name);
           setFormData((prevalues) => [...prevalues, values]);
           resetForm({ values: "" });
         }}
@@ -80,6 +83,11 @@ export const SignupForm = () => {
                   (&#8984;S)
                 </span>
               </Button>
+              {errors.Name == requiredError ||
+              errors.Age == requiredError ||
+              errors.Sex == requiredError ? (
+                <ErrorText>**Please Fill the Required Field</ErrorText>
+              ) : null}
             </div>
           </Form>
         )}
