@@ -13,7 +13,9 @@ export const OtherDetails = () => {
       <FormHeading>Other Details</FormHeading>
       <OtherDetailsForm>
         <div>
-          <RequiredLabel htmlFor="Occupation">Occupation </RequiredLabel>
+          <RequiredLabel htmlFor="Occupation" Required>
+            Occupation{" "}
+          </RequiredLabel>
           <Field
             name="Occupation"
             type="text"
@@ -50,7 +52,9 @@ export const OtherDetails = () => {
           </Field>
         </div>
         <div>
-          <RequiredLabel htmlFor="BloodGroup">Blood Group</RequiredLabel>
+          <RequiredLabel htmlFor="BloodGroup" Required>
+            Blood Group
+          </RequiredLabel>
           <Field as="select" name="BloodGroup" className={`input select`}>
             <option value="" disabled>
               Enter Blood Group
