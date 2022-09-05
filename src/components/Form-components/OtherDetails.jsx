@@ -13,9 +13,7 @@ export const OtherDetails = () => {
       <FormHeading>Other Details</FormHeading>
       <OtherDetailsForm>
         <div>
-          <RequiredLabel htmlFor="Occupation" Required>
-            Occupation{" "}
-          </RequiredLabel>
+          <RequiredLabel htmlFor="Occupation">Occupation </RequiredLabel>
           <Field
             name="Occupation"
             type="text"

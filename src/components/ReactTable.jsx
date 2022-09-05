@@ -14,11 +14,10 @@ const ReactTable = (props) => {
               <th>NAME</th>
               <th>AGE</th>
               <th>SEX</th>
-              <th>MOBILE</th>
               <th>STATE</th>
               <th>CITY</th>
-              <th>OCCUPATION</th>
-              <th>BLOOD GROUP</th>
+              <th>MOBILE</th>
+              <th>Email</th>
             </tr>
           </TableHead>
           <TableBody style={{ textAlign: "center" }}>
@@ -28,15 +27,14 @@ const ReactTable = (props) => {
                   <td>{item.Name}</td>
                   <td>{item.Age}</td>
                   <td>{item.Sex}</td>
-                  <td>{item.Mobile || "N/A"}</td>
                   <td>
                     {current_selected_state == "Enter State"
                       ? "N/A"
                       : current_selected_state}
                   </td>
                   <td>{item.City || "N/A"}</td>
-                  <td>{item.Occupation || "N/A"}</td>
-                  <td>{item.BloodGroup || "N/A"}</td>
+                  <td>{item.Mobile || "N/A"}</td>
+                  <td>{item.Email || "N/A"}</td>
                 </tr>
               );
             })}
